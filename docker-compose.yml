@@ -1,6 +1,6 @@
 services:
   test-app:
-    container-name: test-app
+    container_name: test-app
     build: .
     restart: unless-stopped
     expose:
