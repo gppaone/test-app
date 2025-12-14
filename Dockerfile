@@ -1,9 +1,9 @@
-FROM node:20 as build
+FROM node:20 as builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
-RUN npm run build || exit 1
+RUN npm run build
 RUN ls -la /app
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
